@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timber Tales - Invoice</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Georgia&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body class="cart-page-body">
+
+    <!-- NAVBAR -->
+    <header class="navbar collection-navbar dont-print">
+        <div class="logo-box">
+            <div class="logo">TIMBER TALES</div>
+        </div>
+
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="collection.html">COLLECTION</a>
+        </nav>
+
+        <div class="icons">
+            <span class="icon-cart" id="navCartIcon" onclick="window.location.href='cart.html'">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                <span class="cart-badge" style="display: none;">0</span>
+            </span>
+            <span class="icon-user">
+                <!-- handled by script -->
+            </span>
+        </div>
+    </header>
+
+    <div class="invoice-wrapper">
+        
+        <div class="invoice-header dont-print">
+            <svg class="success-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#b8860b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 20px;">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <h1 class="invoice-main-title">Order Confirmed</h1>
+            <p class="invoice-subtitle" id="invTitleDesc">Thank you for your purchase. Your order has been placed successfully.</p>
+            
+            <div class="invoice-actions">
+                <button class="inv-action-btn print-btn" id="printInvoiceBtn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 5px;"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                    PRINT INVOICE
+                </button>
+                <button class="inv-action-btn print-btn" onclick="window.print()">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 5px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    DOWNLOAD PDF
+                </button>
+                <button class="inv-action-btn primary-btn" onclick="window.location.href='collection.html'">CONTINUE SHOPPING</button>
+            </div>
+        </div>
+
+        <div class="invoice-details">
+            <div class="invoice-doc-header">
+                <div class="inv-doc-left">
+                    <div class="inv-brand">TIMBER TALES</div>
+                    <div class="inv-label">INVOICE</div>
+                </div>
+                <div class="inv-doc-right">
+                    <div class="inv-number" id="invOrderNo">TT-ORD...</div>
+                    <div class="inv-date" id="invOrderDate">Loading...</div>
+                </div>
+            </div>
+
+            <div class="invoice-meta-row">
+                <div class="inv-meta-col">
+                    <div class="inv-meta-label">BILLED TO</div>
+                    <div class="inv-meta-val" id="invBilledTo">
+                        <!-- Filled by JS -->
+                    </div>
+                </div>
+                <div class="inv-meta-col">
+                    <div class="inv-meta-label">PAYMENT METHOD</div>
+                    <div class="inv-meta-val" id="invPaymentMethod">
+                        <!-- Filled by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="invoice-items-table">
+                <div class="inv-table-head">
+                    <div class="inv-col-item">ITEM</div>
+                    <div class="inv-col-qty">QTY</div>
+                    <div class="inv-col-price">PRICE</div>
+                    <div class="inv-col-total">TOTAL</div>
+                </div>
+                <div id="invItemsBody">
+                    <!-- Items Filled by JS -->
+                </div>
+            </div>
+
+            <div class="invoice-summary-box">
+                <div class="inv-summary-row">
+                    <span>Subtotal</span>
+                    <span id="invSubtotal">₹...</span>
+                </div>
+                <div class="inv-summary-row">
+                    <span>Shipping</span>
+                    <span>Free</span>
+                </div>
+                <div class="inv-summary-row">
+                    <span>Tax</span>
+                    <span id="invTax">₹...</span>
+                </div>
+                <div class="inv-summary-row inv-total-row">
+                    <span>Total</span>
+                    <span id="invTotal" class="inv-total-val">₹...</span>
+                </div>
+            </div>
+
+            <div class="invoice-footer-note">
+                Thank you for choosing Timber Tales. Your furniture will be delivered with our signature white-glove service within 4-5 weeks.
+                <br><br>
+                For inquiries, contact us at hello@timbertales.com
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer dont-print">
+        <div class="footer-col brand-col">
+            <div class="footer-logo">TIMBER TALES</div>
+            <p>Where craft meets eternity. Handcrafted furniture for the discerning collector.</p>
+        </div>
+        <div class="footer-col">
+            <h4>EXPLORE</h4>
+            <a href="#">Bedroom</a>
+            <a href="#">Living Room</a>
+            <a href="#">Dining Room</a>
+            <a href="#">Office</a>
+        </div>
+        <div class="footer-col">
+            <h4>SERVICES</h4>
+            <a href="#">White Glove Delivery</a>
+            <a href="#">Bespoke Commissions</a>
+            <a href="#">Care & Restoration</a>
+            <a href="#">Design Consultation</a>
+        </div>
+        <div class="footer-col">
+            <h4>SHOWROOMS</h4>
+            <a href="#">Mumbai</a>
+            <a href="#">Delhi</a>
+            <a href="#">London</a>
+            <a href="#">New York</a>
+        </div>
+    </footer>
+    <div class="footer-bottom dont-print">
+        &copy; 2026 Timber Tales. All rights reserved.<br>
+        <span class="admin-portal-link">ADMIN PORTAL</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

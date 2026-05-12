@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timber Tales - Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Georgia&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body class="collection-page">
+
+    <!-- NAVBAR -->
+    <header class="navbar collection-navbar">
+        <div class="logo-box">
+            <div class="logo">TIMBER TALES</div>
+        </div>
+
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="collection.html">COLLECTION</a>
+        </nav>
+
+        <div class="icons">
+            <span class="icon-cart">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            </span>
+            <span class="icon-user">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </span>
+        </div>
+    </header>
+
+    <!-- AUTH CONTAINER -->
+    <div class="auth-wrapper">
+        <div class="auth-container">
+            <h1 class="auth-title">TIMBER TALES</h1>
+            <p class="auth-subtitle">CREATE YOUR ACCOUNT</p>
+
+            <form id="signupForm">
+                <div class="form-group">
+                    <label>FULL NAME</label>
+                    <input type="text" id="signupName" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>EMAIL ADDRESS</label>
+                    <input type="email" id="signupEmail" placeholder="you@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>PASSWORD</label>
+                    <div class="password-input">
+                        <input type="password" id="signupPassword" placeholder="Min 6 characters" required minlength="6">
+                        <button type="button" class="toggle-password">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="auth-button">CREATE ACCOUNT</button>
+            </form>
+
+            <div class="auth-footer">
+                Already have an account? <a href="login.html">Sign In</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

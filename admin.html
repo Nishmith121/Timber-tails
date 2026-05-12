@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timber Tales - Admin Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Georgia&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body class="cart-page-body">
+
+    <!-- NAVBAR -->
+    <header class="navbar collection-navbar">
+        <div class="logo-box">
+            <div class="logo" style="color: #b8860b;">TIMBER TALES</div>
+        </div>
+
+        <nav>
+            <a href="admin.html" class="active">DASHBOARD</a>
+        </nav>
+
+        <div class="icons">
+            <span class="icon-user" onclick="logoutAdmin()" style="cursor:pointer;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                <span style="font-size:10px; margin-left:5px; vertical-align:4px;">LOGOUT</span>
+            </span>
+        </div>
+    </header>
+
+    <div class="invoice-wrapper admin-wrapper" style="max-width: 1200px;">
+        <h2 class="cart-title" style="margin-bottom: 30px;">Admin Dashboard</h2>
+        
+        <div class="admin-tabs" style="display:flex; gap:10px; margin-bottom: 30px;">
+            <button class="inv-action-btn primary-btn admin-tab-btn active" data-target="orders-tab">ALL ORDERS</button>
+            <button class="inv-action-btn print-btn admin-tab-btn" data-target="inventory-tab">INVENTORY</button>
+        </div>
+
+        <!-- ORDERS TAB -->
+        <div class="admin-tab-content active" id="orders-tab">
+            <div class="invoice-details">
+                <h3 style="color:#fff; font-family:'Georgia'; margin-bottom: 20px;">Recent Orders (<span id="totalOrdersCount">0</span>)</h3>
+                
+                <div class="invoice-items-table">
+                    <div class="inv-table-head">
+                        <div style="flex:1">ORDER ID</div>
+                        <div style="flex:2">CUSTOMER</div>
+                        <div style="flex:1">DATE</div>
+                        <div style="flex:1">PAYMENT</div>
+                        <div style="flex:1; text-align:right;">AMOUNT</div>
+                    </div>
+                    <div id="adminOrdersBody">
+                        <!-- Loaded by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INVENTORY TAB -->
+        <div class="admin-tab-content" id="inventory-tab" style="display:none;">
+            <div class="invoice-details" style="margin-bottom: 30px;">
+                <h3 style="color:#fff; font-family:'Georgia'; margin-bottom: 20px;">Add New Product</h3>
+                <form id="addProductForm" class="checkout-section" style="border:none; padding:0; background:transparent;">
+                    <div class="form-row">
+                        <div class="form-group half-width">
+                            <label>PRODUCT NAME</label>
+                            <input type="text" id="prodName" required>
+                        </div>
+                        <div class="form-group half-width">
+                            <label>CATEGORY</label>
+                            <input type="text" id="prodCategory" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group half-width">
+                            <label>PRICE (₹)</label>
+                            <input type="number" id="prodPrice" required>
+                        </div>
+                        <div class="form-group half-width">
+                            <label>PRODUCT IMAGE</label>
+                            <input type="file" id="prodImageFile" accept="image/*" required style="color:#888; font-size:12px; margin-top:5px;">
+                        </div>
+                    </div>
+                    <button type="submit" class="checkout-btn" style="width: auto; padding: 10px 30px;">ADD PRODUCT</button>
+                </form>
+            </div>
+
+            <div class="invoice-details">
+                <h3 style="color:#fff; font-family:'Georgia'; margin-bottom: 20px;">Manage Products</h3>
+                <div class="product-grid" id="adminInventoryGrid">
+                    <!-- Loaded by JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timber Tales - Checkout</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Georgia&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body class="cart-page-body">
+
+    <!-- NAVBAR -->
+    <header class="navbar collection-navbar">
+        <div class="logo-box">
+            <div class="logo">TIMBER TALES</div>
+        </div>
+
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="collection.html">COLLECTION</a>
+        </nav>
+
+        <div class="icons">
+            <span class="icon-cart" id="navCartIcon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                <span class="cart-badge" style="display: none;">0</span>
+            </span>
+            <span class="icon-user">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </span>
+        </div>
+    </header>
+
+    <!-- CHECKOUT CONTAINER -->
+    <div class="cart-wrapper checkout-wrapper">
+        <div class="cart-left checkout-left">
+            <a href="cart.html" class="back-link">&lt; BACK TO CART</a>
+            <h2 class="cart-title">Checkout</h2>
+
+            <div class="checkout-section">
+                <h3 class="section-title">Shipping Address</h3>
+                
+                <div class="form-row">
+                    <div class="form-group half-width">
+                        <label>FULL NAME</label>
+                        <input type="text" id="chkName">
+                    </div>
+                    <div class="form-group half-width">
+                        <label>EMAIL</label>
+                        <input type="email" id="chkEmail">
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                        <label>STREET ADDRESS</label>
+                        <input type="text" id="chkAddress">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half-width">
+                        <label>CITY</label>
+                        <input type="text" id="chkCity">
+                    </div>
+                    <div class="form-group half-width">
+                        <label>STATE / PROVINCE</label>
+                        <input type="text" id="chkState">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half-width">
+                        <label>ZIP / POSTAL CODE</label>
+                        <input type="text" id="chkZip">
+                    </div>
+                    <div class="form-group half-width">
+                        <label>COUNTRY</label>
+                        <input type="text" value="India" id="chkCountry">
+                    </div>
+                </div>
+            </div>
+
+            <div class="checkout-section">
+                <h3 class="section-title">Payment Method</h3>
+                
+                <div class="payment-tabs">
+                    <div class="payment-tab active" data-target="card-form">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                        Credit/Debit Card
+                    </div>
+                    <div class="payment-tab" data-target="upi-form">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                        UPI
+                    </div>
+                    <div class="payment-tab" data-target="cod-form">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>
+                        Cash on Delivery
+                    </div>
+                </div>
+
+                <div class="payment-content active" id="card-form">
+                    <div class="form-group full-width">
+                        <label>CARD NUMBER</label>
+                        <input type="text" placeholder="1234 5678 9012 3456">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group half-width">
+                            <label>EXPIRY DATE</label>
+                            <input type="text" placeholder="MM/YY">
+                        </div>
+                        <div class="form-group half-width">
+                            <label>CVV</label>
+                            <input type="password" placeholder="123">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="payment-content" id="upi-form" style="display: none;">
+                    <div class="form-group full-width">
+                        <label>UPI ID</label>
+                        <input type="text" placeholder="yourname@paytm">
+                        <p class="input-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 3px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Enter your UPI ID (e.g., name@paytm, name@phonepe, name@googlepay). You will receive a payment request on your UPI app.</p>
+                    </div>
+                </div>
+
+                <div class="payment-content" id="cod-form" style="display: none;">
+                    <div class="cod-hint-box">
+                        <div class="cod-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: #b8860b;"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>
+                        </div>
+                        <div class="cod-text">
+                            <strong>Cash on Delivery Selected</strong>
+                            <p>Pay with cash when your order is delivered. Please keep the exact amount ready for a smooth transaction.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="cart-right checkout-right">
+            <div class="order-summary-box">
+                <h3>Order Summary</h3>
+                <div id="checkoutItemsContainer" class="checkout-items-list">
+                    <!-- Items generated by JS -->
+                </div>
+                
+                <div class="summary-divider"></div>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="checkoutSubtotal">₹0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span>Free</span>
+                </div>
+                <div class="summary-row">
+                    <span>GST (18%)</span>
+                    <span id="checkoutGST">₹0.00</span>
+                </div>
+                
+                <div class="summary-divider"></div>
+                
+                <div class="summary-row total-row">
+                    <span>Total</span>
+                    <span id="checkoutTotal">₹0.00</span>
+                </div>
+
+                <button class="checkout-btn">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 5px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>PLACE ORDER
+                </button>
+                <div class="secure-checkout-note">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 3px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Secure checkout — your data is encrypted
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-col brand-col">
+            <div class="footer-logo">TIMBER TALES</div>
+            <p>Where craft meets eternity. Handcrafted furniture for the discerning collector.</p>
+        </div>
+        <div class="footer-col">
+            <h4>EXPLORE</h4>
+            <a href="#">Bedroom</a>
+            <a href="#">Living Room</a>
+            <a href="#">Dining Room</a>
+            <a href="#">Office</a>
+        </div>
+        <div class="footer-col">
+            <h4>SERVICES</h4>
+            <a href="#">White Glove Delivery</a>
+            <a href="#">Bespoke Commissions</a>
+            <a href="#">Care & Restoration</a>
+            <a href="#">Design Consultation</a>
+        </div>
+        <div class="footer-col">
+            <h4>SHOWROOMS</h4>
+            <a href="#">Mumbai</a>
+            <a href="#">Delhi</a>
+            <a href="#">London</a>
+            <a href="#">New York</a>
+        </div>
+    </footer>
+    <div class="footer-bottom">
+        &copy; 2026 Timber Tales. All rights reserved.<br>
+        <span class="admin-portal-link">ADMIN PORTAL</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
