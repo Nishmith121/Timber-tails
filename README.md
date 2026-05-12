@@ -28,7 +28,7 @@ To access the admin dashboard, you can use the default administrator credentials
 
 ## 🌐 Live Demo
 The application is live and successfully deployed on Render. You can access it here:
-**[https://ecomerce-app-3zha.onrender.com](https://ecomerce-app-3zha.onrender.com)**
+**[Timber Tales](https://ecomerce-app-3zha.onrender.com)**
 
 ---
 
@@ -102,7 +102,7 @@ This repository is fully configured for seamless deployment on [Render](https://
 ## 📂 Project Structure
 
 ```
-ecomerce/
+Timber-Tales/
 ├── public/               # Frontend Client Files
 │   ├── images/           # Product and site images
 │   ├── admin.html        # Admin dashboard
