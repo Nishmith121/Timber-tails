@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Load Orders
     async function loadOrders() {
         try {
-            const res = await fetch("http://127.0.0.1:3005/api/admin/orders");
+            const res = await fetch("/api/admin/orders");
             const orders = await res.json();
             document.getElementById("totalOrdersCount").textContent = orders.length;
 
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Load Inventory
     async function loadInventory() {
         try {
-            const res = await fetch("http://127.0.0.1:3005/api/products");
+            const res = await fetch("/api/products");
             const products = await res.json();
             
             const grid = document.getElementById("adminInventoryGrid");
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.deleteProduct = async (id) => {
         if(!confirm("Are you sure you want to delete this product?")) return;
         try {
-            await fetch(`http://127.0.0.1:3005/api/products/${id}`, { method: 'DELETE' });
+            await fetch(`/api/products/${id}`, { method: 'DELETE' });
             loadInventory();
         } catch (e) {
             console.error(e);
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
             };
 
             try {
-                await fetch("http://127.0.0.1:3005/api/products", {
+                await fetch("/api/products", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(payload)

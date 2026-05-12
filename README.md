@@ -26,6 +26,12 @@ To access the admin dashboard, you can use the default administrator credentials
 
 ---
 
+## 🌐 Live Demo
+The application is live and successfully deployed on Render. You can access it here:
+**[https://ecomerce-app-3zha.onrender.com](https://ecomerce-app-3zha.onrender.com)**
+
+---
+
 ## 💻 Running Locally
 
 ### Prerequisites
@@ -95,25 +101,26 @@ This repository is fully configured for seamless deployment on [Render](https://
 
 ## 📂 Project Structure
 
-\`\`\`
+```
 ecomerce/
-├── images/               # Product and site images
+├── public/               # Frontend Client Files
+│   ├── images/           # Product and site images
+│   ├── admin.html        # Admin dashboard
+│   ├── cart.html         # Shopping cart page
+│   ├── checkout.html     # Checkout flow
+│   ├── collection.html   # Product listing
+│   ├── index.html        # Landing page
+│   ├── invoice.html      # Order invoice view
+│   ├── login.html        # User login
+│   ├── order-success.html# Post-purchase confirmation
+│   ├── orders.html       # User order history
+│   ├── signup.html       # User registration
+│   ├── script.js         # Main frontend logic
+│   ├── admin.js          # Admin-specific logic
+│   └── styles.css        # Global stylesheets
 ├── node_modules/         # NPM dependencies
-├── admin.html            # Admin dashboard
-├── cart.html             # Shopping cart page
-├── checkout.html         # Checkout flow
-├── collection.html       # Product listing
-├── index.html            # Landing page
-├── invoice.html          # Order invoice view
-├── login.html            # User login
-├── order-success.html    # Post-purchase confirmation
-├── orders.html           # User order history
-├── signup.html           # User registration
-├── script.js             # Main frontend logic
-├── admin.js              # Admin-specific logic
-├── styles.css            # Global stylesheets
 ├── server.js             # Express application and API routes
 ├── package.json          # Node project metadata
 ├── render.yaml           # Render deployment configuration
 └── README.md             # Project documentation
-\`\`\`
+```

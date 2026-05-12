@@ -15,7 +15,7 @@ const SECRET_KEY = process.env.SECRET_KEY || 'timber_tales_super_secret_key'; //
 app.use(cors());
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Initialize PostgreSQL database
 const pool = new Pool({
@@ -172,10 +172,10 @@ app.post('/api/products', (req, res) => {
             const buffer = Buffer.from(matches[2], 'base64');
             const filename = `images/prod_${Date.now()}.${ext}`;
             try {
-                if (!fs.existsSync(path.join(__dirname, 'images'))) {
-                    fs.mkdirSync(path.join(__dirname, 'images'));
+                if (!fs.existsSync(path.join(__dirname, 'public', 'images'))) {
+                    fs.mkdirSync(path.join(__dirname, 'public', 'images'), { recursive: true });
                 }
-                fs.writeFileSync(path.join(__dirname, filename), buffer);
+                fs.writeFileSync(path.join(__dirname, 'public', filename), buffer);
                 imageUrl = filename;
             } catch (fileErr) {
                 console.error("File save error", fileErr);

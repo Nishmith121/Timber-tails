@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const password = document.getElementById("signupPassword").value;
 
             try {
-                const response = await fetch("http://127.0.0.1:3005/api/auth/signup", {
+                const response = await fetch("/api/auth/signup", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ fullName, email, password })
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const password = document.getElementById("loginPassword").value;
 
             try {
-                const response = await fetch("http://127.0.0.1:3005/api/auth/login", {
+                const response = await fetch("/api/auth/login", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ email, password })
@@ -242,7 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (collectionGrid) {
         async function fetchProducts() {
             try {
-                const response = await fetch("http://127.0.0.1:3005/api/products");
+                const response = await fetch("/api/products");
                 const products = await response.json();
                 
                 collectionGrid.innerHTML = "";
@@ -427,7 +427,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const paymentMethod = activeTab ? activeTab.innerText.trim() : "Unknown";
 
                 try {
-                    const response = await fetch("http://127.0.0.1:3005/api/orders", {
+                    const response = await fetch("/api/orders", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({
@@ -472,7 +472,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             try {
-                const response = await fetch(`http://127.0.0.1:3005/api/orders/${user.id}`);
+                const response = await fetch(`/api/orders/${user.id}`);
                 const orders = await response.json();
 
                 if (orders.length === 0) {
@@ -529,7 +529,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             try {
-                const response = await fetch(`http://127.0.0.1:3005/api/order/${orderId}`);
+                const response = await fetch(`/api/order/${orderId}`);
                 if (!response.ok) {
                     invoiceWrapper.innerHTML = "<p style='color:#fff;'>Order not found.</p>";
                     return;
