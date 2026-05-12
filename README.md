@@ -27,7 +27,7 @@ To access the admin dashboard, you can use the default administrator credentials
 ---
 
 ## 🌐 Live Demo
-The application is live and successfully deployed on Render. You can access it here:
+The application is live. You can access it here:
 **[Timber Tales](https://ecomerce-app-3zha.onrender.com)**
 
 ---
@@ -44,8 +44,8 @@ Ensure you have the following installed on your local machine:
 
 1. **Clone the repository:**
    \`\`\`bash
-   git clone <repository-url>
-   cd ecomerce
+   git clone https://github.com/prabhu-omkar/Timber-Tales.git
+   cd Timber-Tales
    \`\`\`
 
 2. **Install dependencies:**
