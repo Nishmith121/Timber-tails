@@ -70,3 +70,23 @@ The frontend of Timber Tales was built entirely from scratch using vanilla web t
 - **Inventory Management:** Full CRUD (Create, Read, Update, Delete) capabilities for the product catalog.
 - **Image Uploads:** Admins can upload product images which are processed as Base64 strings and saved statically on the server.
 - **Order Fulfillment View:** Access a comprehensive list of all customer orders across the entire platform.
+
+## 5. Backend Development & Key Components
+
+The backend is built as a monolithic RESTful API using Node.js and Express, designed for simplicity, speed, and easy deployment.
+
+### Core Architecture & Initialization
+- **Express App:** The central `server.js` file configures the Express application, applies global middleware (`cors`, `body-parser`), and maps all API routes.
+- **Database Bootstrapping:** Upon startup, the server establishes a connection pool to PostgreSQL using the `pg` library. It automatically provisions the schema by executing `CREATE TABLE IF NOT EXISTS` for `users`, `orders`, and `products`. It also checks if the products table is empty and seeds initial default products.
+
+### Key Backend Components & Modules
+- **Authentication Module (`/api/auth/*`):** 
+  - Handles `/signup` and `/login`.
+  - Utilizes `bcryptjs` to asynchronously hash passwords with a salt round of 10 before saving to the database, ensuring raw passwords are never exposed.
+  - Issues `jsonwebtoken` (JWT) upon successful login. The token payload contains user identification and role data, signed with a configurable `SECRET_KEY`.
+- **Product Management Module (`/api/products/*`):**
+  - Exposes full CRUD REST endpoints. 
+  - **Image Processing logic:** The `POST` endpoint handles large JSON payloads (configured up to 50mb via `body-parser`) containing Base64 encoded images. The server parses this string using Regex, converts it to a raw binary buffer, and saves it asynchronously to the local file system (`public/images/`). The resulting file path is then inserted into the PostgreSQL `imageUrl` column.
+- **Order Processing Module (`/api/orders/*`):**
+  - Handles creation of orders containing stringified JSON for arrays of cart items and nested shipping address objects.
+  - Provides endpoints for users to fetch their individual order history (`GET /api/orders/:userId`) and for admins to fetch a global ledger (`GET /api/admin/orders`).
