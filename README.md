@@ -23,6 +23,7 @@ To access the admin dashboard, you can use the default administrator credentials
 - **Security:** bcryptjs (password hashing), jsonwebtoken (JWT auth)
 - **Database:** PostgreSQL (using `pg` node package)
 - **Deployment:** Render (via Blueprint `render.yaml`), Neon (Serverless Postgres)
+- **Containerization:** Docker (for local database setup)
 
 ---
 
@@ -38,35 +39,41 @@ The application is live. You can access it here:
 
 Ensure you have the following installed on your local machine:
 - [Node.js](https://nodejs.org/en/) (v14 or higher)
-- [PostgreSQL](https://www.postgresql.org/) (Ensure your local Postgres server is running)
+- [PostgreSQL](https://www.postgresql.org/) (Ensure your local Postgres server is running) OR [Docker](https://www.docker.com/) for spinning up a containerized database.
 
 ### Setup Steps
 
 1. **Clone the repository:**
-   \`\`\`bash
-   git clone https://github.com/prabhu-omkar/Timber-Tales.git
-   cd Timber-Tales
-   \`\`\`
+   ```bash
+   git clone https://github.com/Nishmith121/Timber-tails.git
+   cd Timber-tails
+   ```
 
 2. **Install dependencies:**
-   \`\`\`bash
+   ```bash
    npm install
-   \`\`\`
+   ```
 
 3. **Configure Environment Variables:**
-   Create a \`.env\` file in the root directory and configure the following variables:
-   \`\`\`env
+   Create a `.env` file in the root directory and configure the following variables:
+   ```env
    PORT=3005
    SECRET_KEY=your_super_secret_key_here
    # Update this URL with your local postgres credentials
    DATABASE_URL=postgres://postgres:root@localhost:5432/ecomerce
-   \`\`\`
+   ```
 
-4. **Start the application:**
-   \`\`\`bash
+4. **Start the Database (Using Docker - Optional):**
+   If you don't have PostgreSQL installed locally, you can use Docker to spin up a local instance:
+   ```bash
+   docker run --name timber-postgres -e POSTGRES_PASSWORD=root -e POSTGRES_DB=ecomerce -p 5432:5432 -d postgres
+   ```
+
+5. **Start the application:**
+   ```bash
    npm start
-   \`\`\`
-   The server will start running on \`http://localhost:3005\`. The app will automatically create the necessary database tables and seed them with initial product data upon the first successful connection.
+   ```
+   The server will start running on `http://localhost:3005`. The app will automatically create the necessary database tables and seed them with initial product data upon the first successful connection.
 
 ---
 
@@ -75,34 +82,34 @@ Ensure you have the following installed on your local machine:
 To deploy the database to the cloud, we use [Neon](https://neon.tech/), a serverless Postgres platform.
 
 1. **Create a Neon Account:** Go to [Neon.tech](https://neon.tech/) and sign up.
-2. **Create a Project:** Click on "New Project". Give it a name (e.g., \`timber-tales-db\`) and select your preferred region.
+2. **Create a Project:** Click on "New Project". Give it a name (e.g., `timber-tales-db`) and select your preferred region.
 3. **Get the Connection String:** 
    - Once the project is created, navigate to the **Dashboard**.
-   - Under **Connection Details**, you will find your \`postgres://...\` connection string. It usually looks like this:
-     \`\`\`
+   - Under **Connection Details**, you will find your `postgres://...` connection string. It usually looks like this:
+     ```
      postgres://[user]:[password]@[endpoint].neon.tech/neondb?sslmode=require
-     \`\`\`
-4. **Update your App:** Replace the \`DATABASE_URL\` in your local \`.env\` file (or provide it to your hosting platform like Render) with this new connection string.
+     ```
+4. **Update your App:** Replace the `DATABASE_URL` in your local `.env` file (or provide it to your hosting platform like Render) with this new connection string.
 
 ---
 
 ## 🚢 Deploying to Render
 
-This repository is fully configured for seamless deployment on [Render](https://render.com/) using the Blueprint specification (\`render.yaml\`).
+This repository is fully configured for seamless deployment on [Render](https://render.com/) using the Blueprint specification (`render.yaml`).
 
 1. **Sign in to Render:** Go to your Render Dashboard.
 2. **New Blueprint Instance:** Click on **New +** and select **Blueprint**.
 3. **Connect Repository:** Link your GitHub/GitLab repository containing this codebase.
-4. **Configure Environment Variables:** During the deployment setup, Render will prompt you for variables defined in \`render.yaml\`.
+4. **Configure Environment Variables:** During the deployment setup, Render will prompt you for variables defined in `render.yaml`.
    - Provide the **DATABASE_URL** you obtained from Neon in the previous step.
-5. **Deploy:** Click **Apply** to provision your web service automatically. Render will install dependencies, start the server using \`npm start\`, and handle HTTPS routing.
+5. **Deploy:** Click **Apply** to provision your web service automatically. Render will install dependencies, start the server using `npm start`, and handle HTTPS routing.
 
 ---
 
 ## 📂 Project Structure
 
 ```
-Timber-Tales/
+Timber-tails/
 ├── public/               # Frontend Client Files
 │   ├── images/           # Product and site images
 │   ├── admin.html        # Admin dashboard
